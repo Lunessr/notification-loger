@@ -1,5 +1,7 @@
 import * as Router from "koa-router";
-import { apiController } from "./modules/api/api.controller";
+import { doctorsController } from "./modules/doctors/doctors.controller";
+import { receptionsController } from "./modules/receptions/receptions.controller";
+import { usersController } from "./modules/users/users.cotroller";
 
 const router = new Router();
 
@@ -8,7 +10,7 @@ router.get("/", async (ctx, next) => {
 });
 router.post("/user", async (ctx) => {
   try {
-    const result = await apiController.createUser(ctx.request, ctx.response);
+    const result = await usersController.createUser(ctx.request, ctx.response);
     ctx.body = result;
   } catch (error) {
     console.log(error);
@@ -17,7 +19,10 @@ router.post("/user", async (ctx) => {
 });
 router.post("/doctor", async (ctx) => {
   try {
-    const result = await apiController.createDoctor(ctx.request, ctx.response);
+    const result = await doctorsController.createDoctor(
+      ctx.request,
+      ctx.response
+    );
     ctx.body = result;
   } catch (error) {
     console.log(error);
@@ -26,7 +31,7 @@ router.post("/doctor", async (ctx) => {
 });
 router.post("/reception", async (ctx) => {
   try {
-    const result = await apiController.createReception(
+    const result = await receptionsController.createReception(
       ctx.request,
       ctx.response
     );

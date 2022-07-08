@@ -14,4 +14,3 @@
 1. Run 'npm install'
 2. Run 'migrate-mongo up'
 3. Run 'npm run dev'
-4. Insert 'reception' with 'Postman' or same prog
