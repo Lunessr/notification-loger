@@ -1,6 +1,3 @@
-import { Doctor } from "./doctor";
-import { User } from "./user";
-
 export interface Reception {
   id: string;
   user_id: string;

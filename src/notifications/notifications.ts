@@ -6,47 +6,41 @@ import { logger } from "./logger";
 
 const CronJob = cron.CronJob;
 export const notificationSchedule = new CronJob(
-  "0 * * * * *",
+  "0 0,5,10,15,20,25,30,35,40,45,50,55 * * * *",
   async function () {
     console.time("cron job");
     const dateNow = new Date(Date.now()).setSeconds(0, 0);
     const twoHoursFromNow = dateNow + 7200000;
     const oneDayFromNow = dateNow + 172800000;
+    const date = new Date(Date.now());
 
     const twoHoursReceptions = await ReceptionSchema.find({
-      slot: { $gte: twoHoursFromNow - 1, $lte: twoHoursFromNow + 1 },
+      slot: {
+        $gte: twoHoursFromNow - 300000,
+        $lte: twoHoursFromNow,
+      },
     });
 
     twoHoursReceptions.forEach(async (reception) => {
-      const receptionDate = Date.parse(reception.slot.toString());
       const user = await UserSchema.findById(reception.user_id);
       const doctor = await DoctorSchema.findById(reception.doctor_id);
-      const twoHoursNotification = receptionDate - 7200000;
 
-      if (dateNow === twoHoursNotification) {
-        const date = new Date(Date.now());
-        logger.log(
-          `${date} || Hello ${user.name}! We remind you that you have reception with ${doctor.spec} on this date in 2 hours`
-        );
-      }
+      logger.log(
+        `${date} || Hello ${user.name}! We remind you that you have reception with ${doctor.spec} on this date in 2 hours`
+      );
     });
 
     const oneDayReceptions = await ReceptionSchema.find({
-      slot: { $gte: oneDayFromNow - 1, $lte: oneDayFromNow + 1 },
+      slot: { $gte: oneDayFromNow - 300000, $lte: oneDayFromNow },
     });
 
     oneDayReceptions.forEach(async (reception) => {
-      const receptionDate = Date.parse(reception.slot.toString());
       const user = await UserSchema.findById(reception.user_id);
       const doctor = await DoctorSchema.findById(reception.doctor_id);
-      const oneDayNotification = receptionDate - 172800000;
 
-      if (dateNow === oneDayNotification) {
-        const date = new Date(Date.now());
-        logger.log(
-          `${date} || Hello ${user.name}! We remind you that you have reception with ${doctor.spec} tomorrow on ${reception.slot}`
-        );
-      }
+      logger.log(
+        `${date} || Hello ${user.name}! We remind you that you have reception with ${doctor.spec} tomorrow on ${reception.slot}`
+      );
     });
 
     console.timeEnd("cron job");
