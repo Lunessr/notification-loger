@@ -1,4 +1,4 @@
-import { DoctorWithoutId } from "../interfaces/doctor";
+import { DoctorWithoutId } from "../../interfaces/doctor";
 import { doctorsRepository } from "./doctors.reposytory";
 
 class DoctorsService {

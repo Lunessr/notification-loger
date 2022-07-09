@@ -1,12 +1,18 @@
-FROM node:18.3.0
+FROM node:18.3.0 as base
 
 WORKDIR /docker.container
 
 ENV PORT 80
 
-COPY package.json /docker.container/package.json
+COPY package*.json ./
+COPY tsconfig.json ./
 
 RUN npm install
 
-COPY . /docker.container
+COPY . .
 
+FROM base as production
+
+ENV NODE_PATH=./dist
+
+RUN npm run build

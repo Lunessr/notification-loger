@@ -5,6 +5,7 @@ class UsersController {
     const { name, phone } = req.body;
     try {
       const createdUser = await usersService.createUser({ name, phone });
+      console.log(`User ${createdUser} was created`);
       return createdUser;
     } catch (error) {
       throw new Error(error);

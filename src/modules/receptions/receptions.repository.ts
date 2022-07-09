@@ -1,5 +1,5 @@
 import { ReceptionSchema } from "../../collections/receptions";
-import { ReceptionWithoutId, Reception } from "../interfaces/reception";
+import { ReceptionWithoutId, Reception } from "../../interfaces/reception";
 
 export class ReceptionsRepository {
   async createReception(reception: ReceptionWithoutId): Promise<any> {

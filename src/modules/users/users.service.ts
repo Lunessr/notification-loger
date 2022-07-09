@@ -1,4 +1,4 @@
-import { UserWithoutId } from "../interfaces/user";
+import { UserWithoutId } from "../../interfaces/user";
 import { usersRepository } from "./users.repository";
 
 class UsersService {

@@ -9,6 +9,7 @@ class DoctorsController {
         spec,
         slots,
       });
+      console.log(`Doctor ${createdDoctor} was created`);
       return createdDoctor;
     } catch (error) {
       throw new Error(error);

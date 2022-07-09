@@ -1,5 +1,5 @@
 import { DoctorSchema } from "../../collections/doctors";
-import { DoctorWithoutId, Doctor } from "../interfaces/doctor";
+import { DoctorWithoutId, Doctor } from "../../interfaces/doctor";
 
 class DoctorsRepository {
   async createDoctor(doctor: DoctorWithoutId): Promise<any> {

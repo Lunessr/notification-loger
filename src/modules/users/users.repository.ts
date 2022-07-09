@@ -1,5 +1,5 @@
 import { UserSchema } from "../../collections/users";
-import { User, UserWithoutId } from "../interfaces/user";
+import { User, UserWithoutId } from "../../interfaces/user";
 
 class UsersRepository {
   async createUser(user: UserWithoutId): Promise<any> {

@@ -1,4 +1,4 @@
-import { ReceptionWithoutId } from "../interfaces/reception";
+import { ReceptionWithoutId } from "../../interfaces/reception";
 import { receptionsService } from "./receptions.service";
 
 class ReceptionsController {
@@ -11,6 +11,7 @@ class ReceptionsController {
           doctor_id: doctor_id,
           slot: slot,
         });
+      console.log(`Reception ${createdReception} was created`);
       return createdReception;
     } catch (error) {
       throw new Error(error);

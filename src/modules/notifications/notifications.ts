@@ -1,7 +1,7 @@
 import * as cron from "cron";
-import { ReceptionSchema } from "../collections/receptions";
-import { UserSchema } from "../collections/users";
-import { DoctorSchema } from "../collections/doctors";
+import { ReceptionSchema } from "../../collections/receptions";
+import { UserSchema } from "../../collections/users";
+import { DoctorSchema } from "../../collections/doctors";
 import { logger } from "./logger";
 
 const CronJob = cron.CronJob;
@@ -44,6 +44,7 @@ export const notificationSchedule = new CronJob(
     });
 
     console.timeEnd("cron job");
+    console.log(`Notofications was send`);
   },
   null,
   true

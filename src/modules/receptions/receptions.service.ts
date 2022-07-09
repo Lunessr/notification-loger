@@ -1,6 +1,6 @@
 import { doctorsRepository } from "../doctors/doctors.reposytory";
-import { Doctor } from "../interfaces/doctor";
-import { ReceptionWithoutId } from "../interfaces/reception";
+import { Doctor } from "../../interfaces/doctor";
+import { ReceptionWithoutId } from "../../interfaces/reception";
 import { receptionsRepository } from "./receptions.repository";
 
 class ReceptionsService {

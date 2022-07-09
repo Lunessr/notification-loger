@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import * as koaBody from "koa-body";
 import * as dotenv from "dotenv";
 import { router } from "./routes";
-import { notificationSchedule } from "./notifications/notifications";
+import { notificationSchedule } from "./modules/notifications/notifications";
 
 const app = new Koa();
 dotenv.config();
