@@ -12,5 +12,5 @@
 # To run the App:
 
 1. Run 'npm install'
-2. Run 'migrate-mongo up'
+2. Run 'migrate-mongo up' (if You didn't already)
 3. Run 'npm run dev'
