@@ -1,4 +1,4 @@
-# Testing task Node.js Backend Developer
+# Notification loger
 
 # Stack:
 
